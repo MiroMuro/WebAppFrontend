@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import TaskForm from "./components/TaskForm";
 import { getAllTasks } from "./service/TaskService";
 import "./App.css";
 import Task from "./interfaces/Task";
@@ -8,7 +10,7 @@ import { TaskList } from "./components/Tasklist";
 function App() {
   const dispatch = useAppDispatch();
 
-  store.subscribe(() => console.log(store.getState()));
+  //store.subscribe(() => console.log(store.getState()));
   useEffect(() => {
     const newTask: Task = {
       id: 4,
@@ -30,6 +32,7 @@ function App() {
     <div>
       <div>Hello world!</div>
       <TaskList />
+      <TaskForm />
     </div>
   );
 }

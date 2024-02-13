@@ -14,12 +14,12 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<Task>) => {
-      console.log("YKSISSÄ", action.payload);
+      //console.log("YKSISSÄ", action.payload);
       state.tasks = [...state.tasks, action.payload];
     },
     addAllTasks: (state, action: PayloadAction<Array<Task>>) => {
-      console.log(state.tasks, "SLICESSÄ");
-      console.log(action.payload, "SLICESSÄ");
+      //console.log(state.tasks, "SLICESSÄ");
+      //console.log(action.payload, "SLICESSÄ");
       state.tasks = action.payload;
     },
   },
