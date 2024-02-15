@@ -7,6 +7,14 @@ export const getAllTasks = async () => {
   );
 
   const tasks: Array<Task> = response.data;
-  console.log(tasks);
+  //console.log(tasks);
   return tasks;
+};
+
+export const appendTaskToDb = async (task: Task) => {
+  const response: AxiosResponse = await axios.post(
+    "http://localhost:8080/api/tasks",
+    task
+  );
+  return response;
 };

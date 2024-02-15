@@ -3,7 +3,7 @@ import TaskForm from "./components/TaskForm";
 import { getAllTasks } from "./service/TaskService";
 import "./App.css";
 import Task from "./interfaces/Task";
-import { store } from "./store";
+//import { store } from "./store";
 import { useAppDispatch } from "./hooks/hooks";
 import { addAllTasks, addTask } from "./reducers/taskSlice";
 import { TaskList } from "./components/Tasklist";

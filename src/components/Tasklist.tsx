@@ -10,7 +10,7 @@ export const TaskList = () => {
           <li style={{ border: "3px solid white", margin: "10px" }}>
             <div>Title: {task.title}</div>
             <div>Descrption: {task.description}</div>
-            <div>Completed: {task.completed ? "no" : "yes"}</div>
+            <div>Completed: {task.completed ? "yes" : "no"}</div>
           </li>
         ))}
       </ul>

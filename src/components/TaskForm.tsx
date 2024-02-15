@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Task from "../interfaces/Task";
-import { addTask } from "../reducers/taskSlice";
+import { saveTask } from "../reducers/taskSlice";
+import { useAppDispatch } from "../hooks/hooks";
+import type { AppDispatch } from "../store";
 
 const TaskForm = () => {
+  const dispatch: AppDispatch = useAppDispatch();
+
   const [newTask, setNewTask] = useState<Task>({
     id: 0,
     title: "",
@@ -20,13 +24,14 @@ const TaskForm = () => {
     console.log(newTask);
   };
 
-  const addTask = () => {
-    return "xd";
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch(saveTask(newTask));
   };
 
   return (
     <div>
-      <form onSubmit={addTask}>
+      <form onSubmit={handleSubmit}>
         <div>
           Title:
           <input
