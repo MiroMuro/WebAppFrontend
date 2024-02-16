@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import Task from "../interfaces/Task";
 
 export const getAllTasks = async () => {
@@ -16,5 +16,20 @@ export const appendTaskToDb = async (task: Task) => {
     "http://localhost:8080/api/tasks",
     task
   );
+  return response;
+};
+
+export const DeleteTaskFromDb = async (id: number) => {
+  const response: AxiosResponse | void = await axios
+    .delete(`http://localhost:8080/api/tasks/${id}`)
+    .catch((error) => {
+      if (error instanceof AxiosError) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      }
+    });
   return response;
 };
