@@ -27,6 +27,12 @@ const TaskForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(saveTask(newTask));
+    setNewTask({
+      id: 0,
+      title: "",
+      description: "",
+      completed: false,
+    });
   };
 
   return (

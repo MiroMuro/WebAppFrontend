@@ -23,8 +23,9 @@ export const TaskList = () => {
             <div>Completed: {task.completed ? "yes" : "no"}</div>
             <div>
               <button onClick={() => del(task.id)}>Delete</button>
+              <button>Edit</button>
             </div>
-          </li>
+            </li>
         ))}
       </ul>
     </div>

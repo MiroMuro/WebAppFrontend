@@ -40,7 +40,6 @@ export const saveTask = (task: Task) => {
 export const removeTask = (id: number) => {
   return async (dispatch: AppDispatch) => {
     const response: AxiosResponse | void = await DeleteTaskFromDb(id);
-
     if (response) {
       dispatch(deleteTask(id));
     }
