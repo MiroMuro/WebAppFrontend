@@ -42,14 +42,17 @@ function App() {
       <Button variant="contained">
         <Link to="taskform">Taskform</Link>
       </Button>
+      <Button variant="contained">
+        <Link to="register">Register</Link>
+      </Button>
       <Routes>
         <Route path="/" element={<div>Hello world!</div>} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tasklist" element={<TaskList />} />
         <Route path="/taskform" element={<TaskForm />} />
+        <Route path="/register" element={<RegistrationForm />} />
       </Routes>
-      <RegistrationForm />
     </div>
   );
 }

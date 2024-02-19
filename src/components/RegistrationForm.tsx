@@ -2,7 +2,7 @@ import { FormControl, FormLabel } from "@mui/material";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import User from "../interfaces/User";
+import User, { isValidUser } from "../interfaces/User";
 import { registerUser } from "../service/TaskService";
 const RegistrationForm = () => {
   const [id, setId] = useState<number>(0);
@@ -12,13 +12,14 @@ const RegistrationForm = () => {
     email: "",
     password: "",
   });
-
+  const enabled: boolean = isValidUser(user);
   const handleSubmit = async () => {
+    //Increase id by one for every registration.
     setId(id + 1);
     setUser({ ...user, id: id });
     event?.preventDefault();
+    //post user to backend.
     await registerUser(user);
-    console.log(user);
   };
 
   const handleInputChange = (
@@ -65,7 +66,9 @@ const RegistrationForm = () => {
             onChange={(e) => handleInputChange(e)}
           />
         </div>
-        <Button type="submit">Register</Button>
+        <Button type="submit" disabled={enabled}>
+          Register
+        </Button>
       </form>
     </FormControl>
   );

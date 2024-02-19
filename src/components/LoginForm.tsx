@@ -1,16 +1,75 @@
+import Button from "@mui/material/Button";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Box,
+  Card,
+  CardContent,
+  CardActions,
+  CardHeader,
+  CardMedia,
+} from "@mui/material";
+import { useState } from "react";
+import { login } from "../service/TaskService";
 const LoginForm = () => {
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const handleSubmit = async () => {
+    event?.preventDefault();
+    console.log("swag");
+    const response = await login(credentials.email, credentials.password);
+    console.log(response.data);
+  };
+  const onInputChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div>
-      <form>
-        <div>Username:</div>
-        <input></input>
-        <div>Password:</div>
-        <input></input>
-        <div>
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    </div>
+    <Box
+      component="form"
+      style={{ border: "2px solid black" }}
+      sx={{ display: "flex", flexWrap: "nowrap" }}
+      onSubmit={handleSubmit}
+    >
+      <Card variant="outlined" sx={{ maxWidth: 275, justifyContent: "center" }}>
+        <CardHeader
+          style={{ borderBottom: "2px solid black" }}
+          title="Login"
+        ></CardHeader>
+        <CardContent style={{ justifyContent: "center" }}>
+          <FormControl>
+            <InputLabel>Email:</InputLabel>
+            <Input
+              onChange={(e) => onInputChange(e)}
+              name="email"
+              value={credentials.email}
+            />
+          </FormControl>
+          <FormControl>
+            <InputLabel>Password:</InputLabel>
+            <Input
+              onChange={(e) => onInputChange(e)}
+              name="password"
+              value={credentials.password}
+            />
+          </FormControl>
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" type="submit">
+            Login
+          </Button>
+        </CardActions>
+      </Card>
+      <Card
+        variant="outlined"
+        sx={{ minWidth: 275, minHeight: 275, borderRight: "2px solid black" }}
+      >
+        <CardHeader title="SWag"></CardHeader>
+        <CardMedia></CardMedia>
+      </Card>
+    </Box>
   );
 };
 

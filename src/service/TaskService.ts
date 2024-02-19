@@ -42,6 +42,16 @@ export const registerUser = async (user: User) => {
   return response;
 };
 
+export const login = async (email: string, password: string) => {
+  const credentials = {
+    email: email,
+    password: password,
+  };
+  const response: AxiosResponse<{ message: string; status: boolean }> =
+    await axios.post(`http://localhost:8080/api/users/login`, credentials);
+  return response;
+};
+
 //export const Login = async(username:string, password:string) => {
 //const response: AxiosResponse = await axios.post(`http://localhost:8080/login`)
 //}
