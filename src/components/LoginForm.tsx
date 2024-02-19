@@ -29,17 +29,26 @@ const LoginForm = () => {
   return (
     <Box
       component="form"
-      style={{ border: "2px solid black" }}
+      style={{
+        border: "2px solid gray",
+        maxWidth: 550,
+        margin: "auto",
+        borderRadius: "10px",
+        overflow: "hidden",
+      }}
       sx={{ display: "flex", flexWrap: "nowrap" }}
       onSubmit={handleSubmit}
     >
-      <Card variant="outlined" sx={{ maxWidth: 275, justifyContent: "center" }}>
+      <Card
+        variant="outlined"
+        sx={{ maxWidth: 275, minHeight: 300, justifyContent: "center" }}
+      >
         <CardHeader
           style={{ borderBottom: "2px solid black" }}
           title="Login"
         ></CardHeader>
         <CardContent style={{ justifyContent: "center" }}>
-          <FormControl>
+          <FormControl style={{ padding: "10px" }}>
             <InputLabel>Email:</InputLabel>
             <Input
               onChange={(e) => onInputChange(e)}
@@ -47,7 +56,7 @@ const LoginForm = () => {
               value={credentials.email}
             />
           </FormControl>
-          <FormControl>
+          <FormControl style={{ padding: "10px" }}>
             <InputLabel>Password:</InputLabel>
             <Input
               onChange={(e) => onInputChange(e)}
@@ -56,17 +65,14 @@ const LoginForm = () => {
             />
           </FormControl>
         </CardContent>
-        <CardActions>
+        <CardActions style={{ justifyContent: "center" }}>
           <Button variant="contained" type="submit">
             Login
           </Button>
         </CardActions>
       </Card>
-      <Card
-        variant="outlined"
-        sx={{ minWidth: 275, minHeight: 275, borderRight: "2px solid black" }}
-      >
-        <CardHeader title="SWag"></CardHeader>
+      <Card variant="outlined" sx={{ minWidth: 275, minHeight: 275 }}>
+        <CardHeader title="Insert pic here"></CardHeader>
         <CardMedia></CardMedia>
       </Card>
     </Box>
