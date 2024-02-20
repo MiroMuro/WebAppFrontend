@@ -13,6 +13,7 @@ import LoginForm from "./components/LoginForm";
 import { Route, Routes } from "react-router-dom";
 import Button from "@mui/material/Button";
 import RegistrationForm from "./components/RegistrationForm";
+import NavBar from "./components/NavBar";
 function App() {
   const dispatch = useAppDispatch();
 
@@ -27,27 +28,10 @@ function App() {
 
   return (
     <div>
-      <Button variant="contained">
-        <Link to="/">default</Link>
-      </Button>
-      <Button variant="contained">
-        <Link to="/home">Home</Link>
-      </Button>
-      <Button variant="contained">
-        <Link to="/login">Login</Link>
-      </Button>
-      <Button variant="contained">
-        <Link to="/tasklist">Tasks</Link>
-      </Button>
-      <Button variant="contained">
-        <Link to="taskform">Taskform</Link>
-      </Button>
-      <Button variant="contained">
-        <Link to="register">Register</Link>
-      </Button>
+      <NavBar />
+
       <Routes>
-        <Route path="/" element={<div>Hello world!</div>} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/" element={<LoginForm />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tasklist" element={<TaskList />} />
         <Route path="/taskform" element={<TaskForm />} />

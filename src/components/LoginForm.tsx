@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { login } from "../service/TaskService";
+import { Link } from "react-router-dom";
+
 const LoginForm = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const handleSubmit = async () => {
@@ -44,7 +46,10 @@ const LoginForm = () => {
         sx={{ maxWidth: 275, minHeight: 300, justifyContent: "center" }}
       >
         <CardHeader
-          style={{ borderBottom: "2px solid black" }}
+          style={{
+            borderBottom: "2px solid black",
+            backgroundColor: "lightblue",
+          }}
           title="Login"
         ></CardHeader>
         <CardContent style={{ justifyContent: "center" }}>
@@ -67,13 +72,27 @@ const LoginForm = () => {
         </CardContent>
         <CardActions style={{ justifyContent: "center" }}>
           <Button variant="contained" type="submit">
-            Login
+            <Link to="/home">Login</Link>
           </Button>
         </CardActions>
       </Card>
       <Card variant="outlined" sx={{ minWidth: 275, minHeight: 275 }}>
-        <CardHeader title="Insert pic here"></CardHeader>
-        <CardMedia></CardMedia>
+        <CardHeader
+          style={{
+            borderBottom: "2px solid black",
+            backgroundColor: "lightblue",
+          }}
+          title="No account?"
+        ></CardHeader>
+        <CardMedia
+          image="src/assets/login.jpg"
+          style={{ height: 0, paddingTop: "56.25%" }}
+        ></CardMedia>
+        <CardActions style={{ justifyContent: "center", height: "20%" }}>
+          <Button variant="contained" type="submit">
+            <Link to="/register">Register</Link>
+          </Button>
+        </CardActions>
       </Card>
     </Box>
   );
