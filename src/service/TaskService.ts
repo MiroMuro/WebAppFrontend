@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import Task from "../interfaces/Task";
-import User from "../interfaces/User";
 export const getAllTasks = async () => {
   const response: AxiosResponse = await axios.get(
     "http://localhost:8080/api/tasks"
@@ -31,24 +30,6 @@ export const DeleteTaskFromDb = async (id: number) => {
         }
       }
     });
-  return response;
-};
-
-export const registerUser = async (user: User) => {
-  const response: AxiosResponse | void = await axios.post(
-    `http://localhost:8080/api/users/save`,
-    user
-  );
-  return response;
-};
-
-export const login = async (email: string, password: string) => {
-  const credentials = {
-    email: email,
-    password: password,
-  };
-  const response: AxiosResponse<{ message: string; status: boolean }> =
-    await axios.post(`http://localhost:8080/api/users/login`, credentials);
   return response;
 };
 

@@ -3,11 +3,13 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import User, { isValidUser } from "../interfaces/User";
-import { registerUser } from "../service/TaskService";
+import { registerUser } from "../service/UserService";
 const RegistrationForm = () => {
   const [id, setId] = useState<number>(0);
   const [user, setUser] = useState<User>({
     id: 0,
+    firstname: "",
+    lastname: "",
     username: "",
     email: "",
     password: "",
@@ -33,6 +35,28 @@ const RegistrationForm = () => {
   return (
     <FormControl>
       <form onSubmit={handleSubmit}>
+        <div>
+          <FormLabel>Firstname</FormLabel>
+          <TextField
+            type="text"
+            size="small"
+            variant="filled"
+            name="firstname"
+            value={user.firstname}
+            onChange={(e) => handleInputChange(e)}
+          />
+        </div>
+        <div>
+          <FormLabel>Lastname</FormLabel>
+          <TextField
+            type="text"
+            size="small"
+            variant="filled"
+            name="lastname"
+            value={user.lastname}
+            onChange={(e) => handleInputChange(e)}
+          />
+        </div>
         <div>
           <FormLabel>Username</FormLabel>
           <TextField

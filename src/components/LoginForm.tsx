@@ -11,14 +11,13 @@ import {
   CardMedia,
 } from "@mui/material";
 import { useState } from "react";
-import { login } from "../service/TaskService";
+import { login } from "../service/UserService";
 import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const handleSubmit = async () => {
     event?.preventDefault();
-    console.log("swag");
     const response = await login(credentials.email, credentials.password);
     console.log(response.data);
   };
@@ -34,7 +33,7 @@ const LoginForm = () => {
       style={{
         border: "2px solid gray",
         maxWidth: 550,
-        margin: "auto",
+        margin: "50px auto 0px auto",
         borderRadius: "10px",
         overflow: "hidden",
       }}
@@ -47,7 +46,7 @@ const LoginForm = () => {
       >
         <CardHeader
           style={{
-            borderBottom: "2px solid black",
+            borderBottom: "2px solid gray",
             backgroundColor: "lightblue",
           }}
           title="Login"
@@ -79,7 +78,7 @@ const LoginForm = () => {
       <Card variant="outlined" sx={{ minWidth: 275, minHeight: 275 }}>
         <CardHeader
           style={{
-            borderBottom: "2px solid black",
+            borderBottom: "2px solid gray",
             backgroundColor: "lightblue",
           }}
           title="No account?"
